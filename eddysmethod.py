@@ -20,17 +20,20 @@ def print_eddy(seq1, seq2):
         for cells in matching:
             if i != 0 and j != 0:
                 if S1[i-1] == S2[j-1]:
-                    # m[i][j] = m[i-1][j-1] + 1
-                    m[i][j] = m[i-1][j-1] + 5
+                    m[i][j] = m[i-1][j-1] + 1
+                    # m[i][j] = m[i-1][j-1] + 5
                     bt[i][j] = diagonal
                 if S1[i-1] != S2[j-1]:
-                    m[i][j] = m[i-1][j-1] - 2
+                    m[i][j] = m[i - 1][j - 1]
+                    # m[i][j] = m[i-1][j-1] - 2
                     bt[i][j] = diagonal
                     if m[i-1][j] > m[i][j]:
-                        m[i][j] = m[i-1][j] - 6
+                        m[i][j] = m[i-1][j]
+                        # m[i][j] = m[i - 1][j] - 6
                         bt[i][j] = up
                     if m[i][j-1] > m[i][j]:
-                        m[i][j] = m[i][j-1] - 6
+                        m[i][j] = m[i][j - 1]
+                        # m[i][j] = m[i][j-1] - 6
                         bt[i][j] = left
             j += 1
         i += 1
