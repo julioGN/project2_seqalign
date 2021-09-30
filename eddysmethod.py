@@ -26,19 +26,19 @@ def print_eddy(seq1, seq2):
                 if S1[i-1] != S2[j-1]:
                     m[i][j] = m[i-1][j-1] - 2
                     bt[i][j] = diagonal
-                if (m[i-1][j] - 6) > m[i][j]:
-                    m[i][j] = m[i - 1][j] - 6
+                if m[i-1][j] - 6 > m[i][j]:
+                    m[i][j] = m[i-1][j] - 6
                     bt[i][j] = up
-                if (m[i][j-1] - 6) > m[i][j]:
+                if m[i][j-1] - 6 > m[i][j]:
                     m[i][j] = m[i][j-1] - 6
                     bt[i][j] = left
             j += 1
         i += 1
 
     print("S1 = " + S1 + ", S2 = " + S2)
-    print("Eddy's method: ")
+    print("M: ")
     print(np.matrix(m))
-    max_align_score = m[i-1][j-1]
+    max_align_score = m[i - 1][j - 1]
     print("Optimal score: ", end='')
     print(max_align_score)
     print()
